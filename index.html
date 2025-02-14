@@ -28,20 +28,24 @@
   <div id="widget-container"></div>
 
   <script type="text/javascript">
-    (function(d, t) {
-      var v = d.createElement(t), s = d.getElementsByTagName(t)[0];
-      v.onload = function() {
+    (function(document, tag) {
+      var voiceflowScript = document.createElement(tag);
+      var firstScriptTag = document.getElementsByTagName(tag)[0];
+
+      voiceflowScript.onload = function() {
         window.voiceflow.chat.load({
           verify: { projectID: '67afb110d7ad2f8adf95ee0a' },
           url: 'https://general-runtime.voiceflow.com',
           versionID: 'production',
           container: '#widget-container'
         });
-      }
-      v.src = "https://cdn.voiceflow.com/widget-next/bundle.mjs"; 
-      v.type = "text/javascript"; 
-      s.parentNode.insertBefore(v, s);
+      };
+
+      voiceflowScript.src = "https://cdn.voiceflow.com/widget-next/bundle.mjs";
+      voiceflowScript.type = "text/javascript";
+      firstScriptTag.parentNode.insertBefore(voiceflowScript, firstScriptTag);
     })(document, 'script');
   </script>
 </body>
 </html>
+
